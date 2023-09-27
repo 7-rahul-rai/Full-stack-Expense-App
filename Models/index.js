@@ -1,9 +1,8 @@
-const {Sequelize, Datatypes} = require('sequelize');
+const {Sequelize, DataTypes} = require('sequelize');
 
 const sequelize = new Sequelize('expressdb','root','12345',{
     host:'localhost',
-    dialect : 'mysql',
-    logging : false
+    dialect : 'mysql'
 }) 
 
 
@@ -18,5 +17,9 @@ var db = {};
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+db.sequelize.sync({force:false})
+
+db.expenses = require('./expenses')(sequelize,DataTypes)
 
 module.exports = db

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Expense Tracker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Edit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Add Expense</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/show">Show Expense</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Container -->
+    <div class="container mt-4">
+        <!-- Expense Form -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Add Expense</h5>
+                <form action="/update/<%= data.id %>" method="POST">
+                     
+                    <div class="mb-3">
+                        <label for="expenseName" class="form-label">Expense Name</label>
+                        <input type="text" class="form-control" id="expenseName" placeholder="Enter expense name" name="expenseName" value="<%= data.expenseName %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Expense Amount</label>
+                        <input type="number" class="form-control" id="expenseAmount" placeholder="Enter expense amount" name="amount" value="<%= data.amount %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Select Category</label>
+                        <select class="form-control" name="category">
+                            <option value="Grocery">Grocery</option>
+                            <option value="Gadgets">Gadgets</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Food & Beverages">Food & Beverages</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    
+                </form>
+            </div>
+        </div>
+
+        <!-- Expense Table -->       
+              
+       
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
